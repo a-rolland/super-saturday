@@ -9,12 +9,15 @@ import Footer from './components/Footer'
 
 import Recetas from './components/Recetas'
 import Productos from './components/Productos'
+import "bootstrap/dist/css/bootstrap.min.css";
 import Login from './components/Login'
-import Signup from './components/Signup'
+import Signup from './components/Signup/Signup'
 import Forgot from './components/Forgot'
 import Carrito from './components/Carrito'
+import AccountCreated from "./components/Signup/AccountCreated"
+import AddReceta from './components/AddReceta'
 import PostsList from './components/PostsList'
-// import AddPostForm from './components/AddPostForm'
+import AddPostForm from './components/AddPostForm'
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 
 function App() {
@@ -74,18 +77,26 @@ function App() {
   }
 
   const noticias = {
-    items: [{
-      id: "1",
-      img: "http://img1",
-      title: "titulo de la noticia",
-      description: "descripcion de la noticia"
-    },
-    {
-      id: "2",
-      img: "http://img2",
-      title: "titulo de la noticia",
-      description: "descripcion de la noticia"
-    }]
+    items: [
+      {
+        id: "1",
+        img:
+          "https://www.lavanguardia.com/r/GODO/LV/p7/WebSite/2020/07/18/Recortada/20200717-637305883725291135_20200717131506-kw6G-WBFI8V8ALDVBVHL8-992x558@LaVanguardia-Web.jpg",
+        title:
+          "El Govern responsabiliza a cada ciudadano de que no haya contagios",
+        description:
+          "Trece ciudades del área metropolitana de Barcelona, 2,6 millones de personas, así como los habitantes de la Noguera y todo el Segrià, han sido impelidos a quedarse en casa todo lo que sea posible durante estos próximos quince días. “No salgan ni se vayan de fin de semana”, recomendaron los tres consellers, Alba Vergés, Meritxell Budó y Miquel Buch, que anunciaron las nuevas medidas de restricción. No participó como se creía la alcaldesa de Barcelona, Ada Colau.",
+      },
+      {
+        id: "2",
+        img:
+          "https://www.lavanguardia.com/r/GODO/LV/p7/WebSite/2020/07/18/Recortada/img_aservian_20200714-125517_imagenes_lv_terceros_foto_3674677-kvjH-W2B9AA9WD0D9G5GJ-992x558@LaVanguardia-Web.JPG",
+        title:
+          "El 50% de los españoles no se irá de vacaciones por el virus o la economía",
+        description:
+          "Está claro que estamos ante un verano diferente. Así de tajante se manifestó ayer Rosario Pedrosa, responsable del área de estrategia comercial y marketing de Aecoc, la asociación de empresas de gran consumo, durante la presentación del estudio anual que realiza para analizar las tendencias de gasto de las familias en esta temporada del año.",
+      },
+    ],
   }
 
   const postsInitial = {
@@ -191,7 +202,7 @@ function App() {
       <Switch>
 
         <Route exact path="/">
-          <Home carouselData={carousel} ads={ads} />
+          <Home carouselData={carousel} ads={ads} posts={posts} noticias={noticias} />
         </Route>
 
         <Route exact path="/recetas">
@@ -202,11 +213,15 @@ function App() {
         </Route>
         <Route exact path="/login" component={Login} />
         <Route exact path="/signup" component={Signup} />
+        <Route exact path="/account-created" component={AccountCreated} />
         <Route exact path="/forgot" component={Forgot} />
         <Route exact path="/carrito" component={Carrito} />
-        {/* <Route exact path="/posts/add" component={AddPostForm} /> */}
+        <Route exact path="/posts/add" component={AddPostForm} />
+        <Route exact path="/posts/add">
+          <AddPostForm posts={posts} setPosts={setPosts}/>
+        </Route>
       </Switch>
-      <Footer/>
+      <Footer />
     </div>
   );
 }

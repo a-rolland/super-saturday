@@ -20,6 +20,15 @@
     height: 250px;
 }
 
+.boton-new{
+    font-size: 10pt;
+    font-weight: bold;
+    padding: 4px;
+    background-color: #cce6ff;
+    color: #666666;
+    text-decoration: none;
+}
+
 .navbar {
     background-color: white;
 }
@@ -72,4 +81,11 @@ footer ul{
 .fab {
     margin: 10px;
     font-size: 40px
+}
+
+.collapse-content .fa.fa-heart:hover {
+    color: #f44336 !important;
+}
+.collapse-content .fa.fa-share-alt:hover {
+    color: #0d47a1 !important;
 }
