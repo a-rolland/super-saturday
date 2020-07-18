@@ -14,6 +14,7 @@ import Login from './components/Login'
 import Signup from './components/Signup/Signup'
 import Forgot from './components/Forgot'
 import Carrito from './components/Carrito'
+import Cart from './components/Cart'
 import NuevoProducto from './components/NuevoProducto'
 import AccountCreated from "./components/Signup/AccountCreated"
 // import AddReceta from './components/AddReceta'
@@ -200,6 +201,7 @@ function App() {
   return (
     <div>
       <NavBar />
+      <Cart carrito={carritoInitial}/>
       <Switch>
 
         <Route exact path="/">

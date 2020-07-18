@@ -1,3 +1,33 @@
+.fa-stack[data-numero-compras]:after {
+    position: absolute;
+    right: 0%;
+    top: 0%;
+    content: attr(data-numero-compras);
+    font-size: 40%;
+    padding: .6em;
+    border-radius: 999px;
+    line-height: .75em;
+    color: white;
+    color: #00a0df;
+    text-align: center;
+    min-width: 2em;
+    font-weight: bold;
+    background: white;
+    border-style: solid;
+  }
+  
+  .fa-circle {
+    color: #00a0df;
+  }
+  
+  .red-cart {
+    color: #00a0df;
+    background: white;
+  }
+  .cartIcon{
+    width:30px;
+    height: 30px;
+  }
 .adsContainer {
     overflow: auto;
     white-space: nowrap;
