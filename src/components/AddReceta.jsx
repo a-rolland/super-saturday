@@ -1,11 +1,12 @@
 import React, {useState} from 'react'
 import {Form,  FormGroup, FormControl, Button } from 'react-bootstrap'
+import {useLocation} from 'react-router-dom'
 
 const AddReceta = props => {
-
-    //const allRecipes = [...props.recetas.items]
+    const {push} = useLocation()
+    const allRecipes = [...props.recetas.items]
     const initialState = {
-        //id: String(allRecipes.length),
+        id: String(allRecipes.length),
         title: '',
         description: '',
         img: ''
@@ -35,15 +36,15 @@ const AddReceta = props => {
            <Form onSubmit={handleSubmit}>
                <FormGroup>
                 <Form.Label htmlFor="title">Title</Form.Label>
-                <FormControl type="text" name="title" onChange={handleChange} value={recipe.title}/>
+                <Form.Control type="text" name="title" onChange={handleChange} value={recipe.title}/>
                </FormGroup>
                <FormGroup>
                <Form.Label htmlFor="description">Description</Form.Label>
-               <FormControl type="text" name="description" onChange={handleChange} value={recipe.description}/>
+               <Form.Control type="text" name="description" onChange={handleChange} value={recipe.description}/>
                </FormGroup>
                <FormGroup>
                <Form.Label htmlFor="img">Picture URL</Form.Label>
-               <FormControl type="text" name="img" onChange={handleChange} value={recipe.img}/>
+               <Form.Control type="text" name="img" onChange={handleChange} value={recipe.img}/>
                </FormGroup>
                <Button variant="primary" type="submit">SAVE</Button>
             </Form> 

@@ -23,7 +23,7 @@ function Home(props) {
             <br />
             <Link to="/recetas">Recetas</Link>
             <br />
-            <HomeCarousel carouselData={props.carouselData}/>
+            <HomeCarousel carouselData={props.carouselData} />
             <AdsContainer ads={props.ads} />
             <PostsList user={props.user} posts={props.posts} />
             <Noticias noticias={props.noticias}/>
