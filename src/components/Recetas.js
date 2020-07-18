@@ -9,12 +9,9 @@ import {
 	Accordion,
 	Card,
 } from 'react-bootstrap';
-// import Comentarios from './components/Comentarios';
-// import AddReceta from './components/AddReceta';
+import Comentarios from './Comentarios';
 
 function Recetas(props) {
-	const [modalShow, setModalShow] = React.useState(false);
-
 	const recipes = props.recetas.items.map((receta) => (
 		<Media as="li">
 			<img
@@ -36,7 +33,11 @@ function Recetas(props) {
 						</Card.Header>
 						<Accordion.Collapse eventKey="0">
 							<Card.Body>
-								{/* <Comentarios comentarios={props.comentariosRecetas} setComentariosRecetas={props.setComentariosRecetas}/> */}
+								<Comentarios
+									recetaId={receta.id}
+									comentarios={props.comentarios}
+									setComentariosRecetas={props.setComentariosRecetas}
+								/>
 							</Card.Body>
 						</Accordion.Collapse>
 					</Card>
@@ -51,27 +52,12 @@ function Recetas(props) {
 					<h1>Recetas</h1>
 				</Col>
 				<Col sm={3}>
-					<Button onClick={() => setModalShow(true)}>New</Button>
+					<Button href="/recetas/add">New</Button>
 				</Col>
 			</Row>
 			<Row>
 				<Col>{recipes}</Col>
 			</Row>
-			<Modal
-				show={modalShow}
-				onHide={() => setModalShow(false)}
-				backdrop="static"
-				keyboard={false}
-			>
-				<Modal.Header closeButton>
-					<Modal.Title id="contained-modal-title-vcenter">
-						Nueva Receta
-					</Modal.Title>
-				</Modal.Header>
-				<Modal.Body>
-					{/* <AddReceta setRecetas={props.setRecetas}/> */}
-				</Modal.Body>
-			</Modal>
 		</Container>
 	);
 }

@@ -1,12 +1,11 @@
 import React, {useState} from 'react'
 import {Form,  FormGroup, FormControl, Button } from 'react-bootstrap'
-import {useLocation} from 'react-router-dom'
+
 
 const AddReceta = props => {
-    const {push} = useLocation()
     const allRecipes = [...props.recetas.items]
     const initialState = {
-        id: String(allRecipes.length),
+        id: String(allRecipes.length + 1),
         title: '',
         description: '',
         img: ''
@@ -23,7 +22,9 @@ const AddReceta = props => {
 
     const handleSubmit = event => {
         event.prevendDefault()
-        props.setRecetas(recipe)
+        props.setRecetas(recipe => ({
+            items: [...props.recetas, recipe]
+        }))
         setRecipe({
             title: '',
             description: '',
